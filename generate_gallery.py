@@ -38,8 +38,10 @@ def create_link_data(all_files):
     for filename in all_files:
         item = {}
         item['name'] = os.path.splitext(filename)[0][len(FOLDER_NAME)+1:]
-        item['tex'] = filename
-        item['png'] = filename[:-4] + '.png'
+
+        filename_url = filename.replace('\\', '/')
+        item['tex'] = filename_url
+        item['png'] = filename_url[:-4] + '.png'
 
         link_data.append(item)
 
