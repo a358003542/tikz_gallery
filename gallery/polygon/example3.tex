@@ -1,0 +1,19 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+
+\newcommand\score[2]{
+\pgfmathsetmacro\pgfxa{#1+1}
+\tikzstyle{scorestars}=[star, star points=5, star point ratio=2.25, draw,inner sep=1.3pt,anchor=outer point 3]
+  \begin{tikzpicture}[baseline]
+    \foreach \i in {1,...,#2} {
+    \pgfmathparse{(\i<=#1?"yellow":"gray")}
+    \edef\starcolor{\pgfmathresult}
+    \draw (\i*1.75ex,0) node[name=star\i,scorestars,fill=\starcolor]  {};
+   }
+  \end{tikzpicture}
+}
+
+\begin{document}
+\score{4}{5} 
+\end{document}

@@ -1,0 +1,23 @@
+% !Mode:: "TeX:UTF-8"
+\documentclass[tikz,border=2pt]{standalone}
+\usetikzlibrary{calc}
+\begin{document}
+\begin{tikzpicture}
+%\draw (0,0) circle (4) ;
+%\coordinate (O) at (0,0);
+%\shade[ball color=red](O) circle (0.1) node[below] {O};
+\def\n{7}%边数
+\pgfmathsetmacro\i{\n-1}
+\foreach \x in {0,...,\i}
+{
+\def\pointname{\x}
+\coordinate (\pointname) at ($(0,0) +(\x*360/\n:4cm)$)  ;
+%\shade[ball color=red](\pointname) circle (0.05) node[below] {\small \x};
+}
+
+\draw (0)
+\foreach \x in {0,...,\i}
+{ -- (\x) } -- cycle;
+
+\end{tikzpicture}
+\end{document}

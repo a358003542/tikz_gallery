@@ -1,0 +1,31 @@
+\documentclass[dvipsnames]{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\newcommand\clock[4][2]{%
+\begin{tikzpicture}[scale=#1,line cap=round,line width=#1*3pt]
+\filldraw [fill=Goldenrod!20] (0,0) circle (2cm);
+\foreach \angle / \label in
+{0/3, 30/2, 60/1, 90/12, 120/11, 150/10, 180/9,
+210/8, 240/7, 270/6, 300/5, 330/4}
+{
+\draw[line width=#1*1pt] (\angle:1.8cm) -- (\angle:2cm);
+\draw (\angle:1.4cm) node[scale=#1]{\textsf{\label}};
+}
+\foreach \angle in {0,90,180,270}
+\draw[line width=#1*2pt] (\angle:1.6cm) -- (\angle:2cm);
+%\node[draw=none,font=\tiny,text=red,scale=#1] at (0,.9cm) {TICK-TOCK};
+%\draw[rotate=90,line width=#1*2pt] (0,0) -- (-#2*30-#3*30/60:0.7cm); % hours
+%\draw[rotate=90,line width=#1*1.5pt] (0,0) -- (-#3*6:1cm); % minutes
+%\draw[rotate=90,line width=#1*.6pt,red] (0,0) -- (-#4*6:1.2cm); % seconds
+%\path [fill=black] (0,0) circle (3pt);
+%\path [fill=red] (0,0) circle (1.5pt);
+%
+\end{tikzpicture}%
+}
+%%\syntax
+%% \clock[<optional scaling dim>]{<hour>}{<minute>}{<seconds>}
+\noindent\clock[3]{9}{35}{55}
+
+
+\end{document}

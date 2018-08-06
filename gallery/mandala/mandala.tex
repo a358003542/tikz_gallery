@@ -1,0 +1,188 @@
+% Mandala
+% Author: Elena Botoeva
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+\usetikzlibrary{fadings}
+
+\tikzfading[name=fade out, inner color=transparent!0,
+  outer color=transparent!100]
+  
+\def\linecolor{yellow}
+
+\def\petal { 
+  [rounded corners=0.5] %
+  (-1,0)%
+  .. controls (-1,0.6) and (-0.07,0.8).. (0,1)%
+  .. controls (0.07,0.8) and (1,0.6).. (1,0)%
+  .. controls (0.7,-1) and (-0.7,-1).. (-1,0)%
+}
+
+%%%%% circles in the background %%%%%
+\def\background[#1,#2]{
+  \fill[#1] (0,0) circle (3.9);
+  \fill[#2] (0,0) circle (1);
+}
+
+%%%%% star and small circle in the center %%%%%
+\def\center[#1]{
+  \foreach \a in {51.4285,102.857,...,360} { %
+    \draw[color=\linecolor,rotate=\a,fill=#1]
+    (-0.08,0) -- (0,0.46) -- (0.08,0); %
+  }
+  \draw[color=\linecolor,fill=#1] (0,0) circle (0.1);
+}
+
+%%%%%%%%%% Mandala with fixed colouring %%%%%%%%%%
+\def \mandala {
+  \background[red!30!blue!70!black,blue!70!yellow!50];
+
+  % ysh - yshift
+  % xs - xscale
+  % ys - yscale
+  % af - first angle in foreach
+  % as - second angle in foreach
+  % y - number in the color specification after yellow
+  % b - number in the color specification before blue
+  % r - number in the color specification of the shading after red
+  % bl - number in the color specification of the shading before black
+  \foreach \ysh/\xs/\ys/\af/\as/\y/\b/\w/\r/\bl in {%
+    3.06/0.72/0.8/   25.71425/51.4285/    70/100/100/ 100/100,%
+    2.34/1/0.9/        25.71425/77.14275/   6/90/92/       80/80,%
+    1.8/0.8/0.9/       51.4285/102.857/       0/75/100/     60/70,%
+    1.5/0.6/0.6/       25.71425/77.14275/   0/55/100/     40/60,%
+    1.1/0.53/0.58/   51.4285/102.857/       0/40/100/     20/50,%
+    0.8/0.37/0.45/   25.71425/77.14275/   0/45/85/       20/40,%
+    0.53/0.1/0.24/   25.71425/77.14275/   0/10/100/     0/30,%
+    0.49/0.22/0.32/ 51.4285/102.857/       0/10/100/     0/50%
+  }
+  {
+    \foreach \a in {\af,\as,...,360}
+    {
+      \begin{scope}[rotate=\a,shift={(0,\ysh)},xscale=\xs,yscale=\ys]
+        \draw[color=yellow,fill=yellow!\y!red!\b!blue!\w] %
+        [drop shadow={shadow xshift=0.5pt, shadow yshift=-0.5pt}]
+        \petal;
+      \end{scope}
+      
+      \begin{scope}[transform canvas={rotate=\a},shift={(0,\ysh)},xscale=\xs,yscale=\ys]
+        \clip \petal; %
+        \fill[path fading=fade out,fill=red!\r!blue!\bl!black, opacity=0.7]%
+        (0,-0.35) ellipse (1.2 and 0.75);
+        \fill[path fading=fade out,fill=red!\r!blue!\bl!black, opacity=0.3]%
+        (0,-0.2) ellipse (1.2 and 0.4);
+
+        \fill[path fading=fade out,fill=red!\r!blue,opacity=0.2] %
+        (-0.4,0.6) -- (0,0.9) -- (0.4,0.6);
+      \end{scope}
+    }
+  }
+
+  \center[blue]
+}
+%%%%%%%%%% End of Mandala with fixed colouring %%%%%%%%%%
+
+%%%%% one layer of petals %%%%%
+%线条部分
+
+\def\mainbody{
+  \foreach \a in {\af,\as,...,360}
+  {
+    \begin{scope}[rotate=\a,shift={(0,\ysh)},xscale=\xs,yscale=\ys]
+      \draw[color=\linecolor,fill=\c] %
+      [drop shadow={shadow xshift=0.5pt, shadow yshift=-0.5pt}]
+      \petal;
+    \end{scope}
+
+    % fadings
+    \begin{scope}[transform canvas={rotate=\a}, shift={(0,\ysh)},xscale=\xs,yscale=\ys]
+      \clip \petal; %
+      \fill[path fading=fade out,fill=\fc, opacity=0.7]%
+      (0,-0.35) ellipse (1.2 and 0.75);
+      \fill[path fading=fade out,fill=\fc, opacity=0.3]%
+      (0,-0.2) ellipse (1.2 and 0.4);
+      \fill[path fading=fade out,fill=\fc,opacity=0.2] %
+      (-0.4,0.6) -- (0,0.9) -- (0.4,0.6);
+    \end{scope}
+  }
+}
+
+%%%%%%%%%%% Mandalas with parametrized colouring %%%%%%%%%%
+% #1 - the color of the outer most (first) layer
+% #2 - the color of the third layer
+% #3 - the color of the fifth layer
+% #4 - the color of the seventh layer
+% #5 - the color of the fading, gets denser closer to the center
+\def \mandalac[#1,#2,#3,#4,#5]{
+  \background[#3!30!#4!70!#5,#4!70!#2!50];
+
+  % ysh - yshift
+  % xs - xscale
+  % ys - yscale
+  % af - first angle in foreach
+  % as - second angle in foreach
+  % c - color of the petal
+  % fc - color of the fading
+  \foreach \ysh/\xs/\ys/\af/\as/\c/\fc in {%
+    3.06/0.72/0.8/   25.71425/51.4285  /#1/#1!50!#2!90!#5,%
+    2.34/1/0.9/        25.71425/77.14275/#1!50!#2/#2!80!#5,%
+    1.8/0.8/0.9/       51.4285/102.857    /#2/#2!50!#3!70!#5,%
+    1.5/0.6/0.6/       25.71425/77.14275/#2!50!#3/#3!60!#5,%
+    1.1/0.53/0.58/   51.4285/102.857    /#3/#3!50!#4!50!#5,%
+    0.8/0.37/0.45/   25.71425/77.14275/#3!50!#4/#4!40!#5,%
+    0.53/0.1/0.24/   25.71425/77.14275/#4/#4!50!#5,%
+    0.49/0.22/0.32/ 51.4285/102.857    /#4/#4!50!#5%
+  }
+  {
+    \mainbody
+  }
+  \center[#4]
+}
+
+% #1 - the color of the outer most (first) layer
+% #2 - the color of the second layer
+% #3 - the color of the third layer
+% #4 - the color of the forth layer
+% #5 - the color of the fifth layer
+% #6 - the color of the sixth layer
+% #7 - the color of the seventh layer
+% #8 - the color of the fading, gets denser closer to the center
+\def \mandalab[#1,#2,#3,#4,#5,#6,#7,#8]{
+  \background[#6!30!#7!70!#8,#7!70!#4!50];
+
+  % ysh - yshift
+  % xs - xscale
+  % ys - yscale
+  % af - first angle in foreach
+  % as - second angle in foreach
+  % c - color of the petal
+  % fc - color of the fading
+  \foreach \ysh/\xs/\ys/\af/\as/\c/\fc in {%
+    3.06/0.72/0.8/   25.71425/51.4285  /#1/#2!90!#8,%
+    2.34/1/0.9/        25.71425/77.14275/#2/#3!90!#8,%
+    1.8/0.8/0.9/       51.4285/102.857    /#3/#4!80!#8,%
+    1.5/0.6/0.6/       25.71425/77.14275/#4/#5!80!#8,%
+    1.1/0.53/0.58/   51.4285/102.857    /#5/#6!70!#8,%
+    0.8/0.37/0.45/   25.71425/77.14275/#6/#7!70!#8,%
+    0.53/0.1/0.24/   25.71425/77.14275/#7/#7!50!#8,%
+    0.49/0.22/0.32/ 51.4285/102.857    /#7/#7!50!#8%
+  }
+  {
+    \mainbody
+  }
+  \center[#7]
+}
+
+
+\begin{document}
+
+
+\begin{tikzpicture}[scale=2]
+\mandalab[green!50!black, green!60!black, green!70!black!80!, green!50!,
+  green!10!, pink!40!, red!40!,];
+\end{tikzpicture}
+
+
+
+
+\end{document}

@@ -1,0 +1,60 @@
+% !Mode:: "TeX:UTF-8"%確保文檔utf-8編碼
+\documentclass{standalone}
+
+\usepackage{tikz}
+
+
+\usepackage{pgfplots}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont=Adobe 黑体 Std,ItalicFont=Adobe 楷体 Std]
+    {Adobe 宋体 Std}%影響rmfamily字體
+\setCJKsansfont{Adobe 黑体 Std}%影響sffamily字體
+\setCJKmonofont{Adobe 楷体 Std}%影響ttfamily字體
+
+\usetikzlibrary{intersections,calc,positioning}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\begin{scope}[xscale=0.2]
+%主线轴
+\def\startx{0}
+\def\endx{100}
+\pgfmathsetmacro{\stepx}{\startx+1}
+\pgfmathsetmacro{\stepxfive}{\startx+5}
+\pgfmathsetmacro{\stepxten}{\startx+10}
+
+\coordinate (startpoint) at (\startx,0) ;
+\coordinate (endpoint) at (\endx,0) ;
+\draw [](startpoint) -- (endpoint);
+
+%外边框
+\draw ($(startpoint) + (-3,-4)$) rectangle ($(endpoint) + (12,0)$);
+
+%细小刻度
+\foreach \x in {\startx,\stepx,...,\endx}
+  \draw [](\x,0) -- (\x,-1) ;   
+
+5分之一刻度
+\foreach \y in {\startx,\stepxfive,...,\endx}
+  \draw [] (\y,-1.6) -- (\y,0);
+
+
+%10分之一刻度
+\foreach \i in {\startx,\stepxten,...,\endx}
+  \draw [] (\i,-2.2) -- (\i,0)
+  node[below=2.5cm] {\Huge \pgfmathprint{int(\i/1)}};
+
+%unit
+\node at ($(endpoint) +(6,-3)$) {\Huge  cm};
+\end{scope}
+
+%额外的修改
+
+
+\end{tikzpicture}
+
+
+\end{document}

@@ -1,0 +1,24 @@
+% !Mode:: "TeX:UTF-8"%確保文檔utf-8編碼
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{positioning,calc}
+\begin{document}
+\begin{tikzpicture}
+\node[right] (a)  {test};
+\node[right] (b) [above right = of a] {test};
+\node[right] (b0) [below right = of a] {test};
+\coordinate (amidb) at ($(a)!0.5!(a -| b)$);
+
+\draw[->] (a) -- (amidb) |- (b.west) ;
+\draw[->]  (amidb)  |- (b0.west);
+
+
+\node[right] (c) [above right = of b0] {test};
+\node[right] (c0) [below right = of b0] {test};
+\coordinate (b0midc) at ($(b0)!0.5!(b0 -| c)$);
+
+\draw[->] (b0) -- (b0midc) |- (c.west) ;
+\draw[->]  (b0midc)  |- (c0.west);
+\end{tikzpicture}
+\end{document}

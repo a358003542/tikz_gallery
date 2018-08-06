@@ -1,0 +1,55 @@
+% !Mode:: "TeX:UTF-8"%確保文檔utf-8編碼
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\begin{document}
+\usetikzlibrary{calc,intersections,through}
+\begin{tikzpicture}[inner sep=3pt,scale=0.5]
+\newcommand{\convexlens}[2][]{
+\begin{scope}[#1]
+\def\lensr{#2}
+
+\draw (0,0.5*\lensr) arc (90+60:270-60:\lensr) arc (270+60:360-60+90:\lensr);
+\end{scope}}
+
+%\convexlens[color=blue!50,ultra thick,fill=gray!10]{4cm}
+
+
+\def\ulen{4.7}
+
+\draw[name path=VW] (-6,0) -- (10,0);
+\coordinate[label=below:$U$] (U)  at (-3,0) {};
+\fill (U) circle (0.05);
+\coordinate[label=below:$V$] (V) at (-\ulen,0) {};
+\coordinate[label=above:$R$] (R)  at (3,0) {} ;
+\fill (R) circle (0.05);
+\fill (0,0) circle (0.05);
+\draw (V) -- node[below] {$x$} (U);
+
+\draw(U) -- node[above] {$f$} (0,0);
+\draw(0,0) -- node[below] {$f$} (R);
+
+\coordinate[label=above left:$P$] (P) at ($(V) + (0,1)$) {};
+\draw (V) -- node[left] {$h$} (P);
+\coordinate[label=below left:$Q$] (Q) at (0,1) {};
+\draw (P) -- (Q);
+\draw[name path=QS] (Q) -- ($(R)!-8cm!(Q)$);
+\draw[name path=PT] (P) -- ($(U)!-8cm!(P)$);
+\draw[name path=QT] (0,-3) -- (0,3);
+\path [name intersections={of=PT and QT,by=T}];
+\coordinate[label=below left:$T$] (T) at (T) {};
+
+\draw[name path=TS] (T) -- (10,0 |- T);
+\path [name intersections={of=QS and TS,by=S}];
+\coordinate[label=below:$S$] (S) at (S) {};
+\draw[name path=SW] (S) -- node[right] {$h'$} (S |- 10,0);
+
+\path [name intersections={of=SW and VW,by=W}];
+\coordinate[label=above:$W$] (W) at (W) {};
+\path (R) --node[above] {$x'$} (W);
+\path (0,0) --node[right] {$h$} (Q);
+\path (0,0) --node[right] {$h'$} (T);
+
+\draw[red] (P) -- (S);
+\end{tikzpicture}
+\end{document}

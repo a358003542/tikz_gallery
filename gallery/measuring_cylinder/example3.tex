@@ -1,0 +1,36 @@
+% !Mode:: "TeX:UTF-8"%確保文檔utf-8編碼
+\documentclass[border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\definecolor{cf3a7bc2}{RGB}{58,123,194}
+
+
+\begin{document}
+\begin{tikzpicture}
+
+\def\ml{5}
+
+\pgfmathsetmacro{\mlnum}{\ml+0.13}
+
+\path[fill=cf3a7bc2!50] (-5,0.4) -- (5,0.4) --(5,\mlnum)  .. controls ($(0.8,\mlnum) + (0,-0.2)$) and ($(-0.8,\mlnum) + (0,-0.2)$) ..  (-5,\mlnum) --cycle ; 
+
+\draw (-5,0.4) -- (5,0.4) --(5,12) -- (-5.4,12) -- (-5,11.5) --cycle ; 
+
+\begin{scope}
+\foreach \y/\x in {1/10,2/20,3/30,4/40,5/50,6/60,7/70,8/80,9/90,10/100}
+{
+\draw (-0.2,\y) to[bend right=10](0.2,\y) node[right,yslant=0.15](\x){\Large \x};
+
+\foreach \z in {0.2,0.4,0.6,0.8}
+\draw ($(-0.1,\z) + (0,\y)$)to[bend right=5]($(0.1,\z)+(0,\y)$);
+ };
+\end{scope}
+    
+\node[above=1cm] at (100) {\Large mL};
+
+    
+\end{tikzpicture}
+\end{document}

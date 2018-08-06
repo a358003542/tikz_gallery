@@ -1,0 +1,47 @@
+% !Mode:: "TeX:UTF-8"%確保文檔utf-8編碼
+\documentclass{standalone}
+
+\usepackage{tikz}
+
+
+\usepackage{pgfplots}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont=Adobe 黑体 Std,ItalicFont=Adobe 楷体 Std]
+    {Adobe 宋体 Std}%影響rmfamily字體
+\setCJKsansfont{Adobe 黑体 Std}%影響sffamily字體
+\setCJKmonofont{Adobe 楷体 Std}%影響ttfamily字體
+
+
+\begin{document}
+\begin{tikzpicture}
+\usetikzlibrary{intersections,calc,positioning}
+\pgfplotsset{width=7cm,compat=newest}
+
+
+\begin{axis}[
+axis x line=bottom,
+axis y line =left,
+legend pos=outer north east,
+xmin=0,xmax=10,ymin=0,ymax=8,
+minor tick num=1,
+tick align=inside,
+xlabel=$t$/s,
+ylabel=$v$/m/s,
+xtick={0,2,4,6,8},
+ytick={0,2,4,6}]
+\addplot+[sharp plot] coordinates {
+(0,6)  (2,6) (4,6) (6,6) (8,6)
+};
+\addlegendentry{乙}
+\addplot+[sharp plot] coordinates {
+(0,4)  (2,4) (4,4) (6,4) (8,4)
+};
+\addlegendentry{丙}
+\end{axis}
+
+\end{tikzpicture}
+
+
+
+\end{document}

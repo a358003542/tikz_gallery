@@ -1,0 +1,10 @@
+\documentclass[tikz,border=2pt]{standalone}
+\begin{document}
+
+\begin{tikzpicture}[scale=2]
+\draw[step=1,color=gray!40] (-2,-2) grid (2,2);
+\draw[latex-latex, red] (0,-2) -- ++(-1,1) -- ++(-1,-1);
+\draw[dashed, blue] (0,1) -- +(-1,1) -- +(-2,0);
+\end{tikzpicture}
+
+\end{document}

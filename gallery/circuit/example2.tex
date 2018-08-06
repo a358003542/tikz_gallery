@@ -1,0 +1,27 @@
+% !Mode:: "TeX:UTF-8"%確保文檔utf-8編碼
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\begin{document}
+\usetikzlibrary{circuits.ee.IEC}
+
+\begin{tikzpicture}[circuit ee IEC]
+\node[battery] (battery) at(0,3) {};
+\node[make contact,info=S] (contact1) at(2,3) {};
+\draw (battery) -- (contact1);
+\node[draw,circle,inner sep =1pt] (A) at (3,1.5) {\footnotesize A};
+\draw (contact1) -| (A);
+\node[bulb,info=L1] (L1) at (-1,0){};
+\node[bulb,info=L2] (L2) at (1.5,0){};
+\node[contact,info=c] (c) at (2.5,0) {};
+\draw (L2) -| (A);
+\draw (L1) -- (L2);
+\node[contact,info'=b] (b) {};
+\node[contact,info=180:a] (a) at(-2,1.5) {};
+\node[draw,circle,inner sep =1pt] (V) at (-1,1.5) {\footnotesize V};
+\draw (a) -- (V);
+\draw (V) -| (b);
+\draw (L1) -| (a);
+\draw (a) |- (battery);
+\end{tikzpicture}
+\end{document}

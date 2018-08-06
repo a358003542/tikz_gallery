@@ -1,0 +1,41 @@
+% !Mode:: "TeX:UTF-8"%確保文檔utf-8編碼
+\documentclass{standalone}
+
+\usepackage{tikz}
+
+
+\usepackage{pgfplots}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont[ItalicFont=方正楷体简体]{思源宋体 CN}
+\setCJKsansfont{思源黑体 CN}
+\setCJKmonofont{方正楷体简体}
+
+
+\begin{document}
+\begin{tikzpicture}
+\usetikzlibrary{intersections,calc,positioning}
+\pgfplotsset{width=7cm,compat=newest}
+
+
+\begin{axis}[
+axis x line=bottom,
+axis y line =left,
+legend pos=outer north east,
+xmin=0,xmax=8.9,ymin=0,ymax=34.9,
+minor tick num=1,
+tick align=inside,
+xlabel=$t$/s,
+ylabel=$s$/m,
+xtick={0,2,4,6,8},
+ytick={0,10,20,30},grid=both]
+\addplot+[sharp plot,mark=triangle*] coordinates {
+(0,0)  (5,20)  
+};
+\addlegendentry{甲}
+\end{axis}
+\end{tikzpicture}
+
+
+
+\end{document}

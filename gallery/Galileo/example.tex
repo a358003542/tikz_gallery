@@ -1,0 +1,40 @@
+% !Mode:: "TeX:UTF-8"%確保文檔utf-8編碼
+\documentclass[border=2pt]{standalone}
+
+\usepackage{tikz}
+
+
+\usepackage{pgfplots}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont[ItalicFont=方正楷体简体]{思源宋体 CN}
+\setCJKsansfont{思源黑体 CN}
+\setCJKmonofont{方正楷体简体}
+
+
+\usetikzlibrary{intersections,calc,positioning}
+
+\begin{document}
+
+\begin{tikzpicture}
+\draw (0,0) to[out=-50 ,in=180] (2,-2) -- (5,-2);
+\fill[gray!50,rotate=-50] (0,0) rectangle (0.5,0.4);
+\node[below] at (2.5,-2) {水平毛巾表面};
+
+\begin{scope}[xshift=5cm]
+\draw (0,0) to[out=-50 ,in=180] (2,-2) -- (5,-2);
+\fill[gray!50,rotate=-50] (0,0) rectangle (0.5,0.4);
+\node[below] at (2.5,-2) {水平棉布表面};
+\end{scope}
+
+\begin{scope}[xshift=10cm]
+\draw (0,0) to[out=-50 ,in=180] (2,-2) -- (5,-2);
+\fill[gray!50,rotate=-50] (0,0) rectangle (0.5,0.4);
+\node[below] at (2.5,-2) {水平木板表面};
+\end{scope}
+
+
+\end{tikzpicture}
+
+
+\end{document}

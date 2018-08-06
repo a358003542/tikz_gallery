@@ -1,0 +1,23 @@
+% !Mode:: "TeX:UTF-8"%確保文檔utf-8編碼
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[grid=major,
+xtick={0,0.1,0.2,0.3,0.4},
+ytick={0,10,20,30,40},
+%extra x ticks={1.5},
+axis x line=bottom,
+axis y line =left,
+%legend pos=outer north east,
+xmin=0,xmax=0.4,ymin=0,ymax=45,
+minor tick num=1,
+tick align=inside,
+xlabel=$t$/s,
+ylabel=$s$/cm,
+grid=both]
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

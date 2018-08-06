@@ -1,0 +1,24 @@
+% !Mode:: "TeX:UTF-8"%確保文檔utf-8編碼
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+axis x line=bottom,
+axis y line =left,
+legend pos=outer north east,
+minor tick num=1,
+tick align=inside,
+xlabel=$h$,
+ylabel=$F$]
+
+\addplot[mark=x] coordinates {(0,0) (1,1) (2,2)
+};
+\addlegendentry{B}
+\addplot[mark=*] coordinates {(0,0) (1,2) (2,4)
+};
+\addlegendentry{A}
+\end{axis}
+\end{tikzpicture}
+\end{document}

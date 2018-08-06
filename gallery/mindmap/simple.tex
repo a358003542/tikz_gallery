@@ -1,0 +1,20 @@
+% !Mode:: "TeX:UTF-8"%確保文檔utf-8編碼
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\begin{document}
+
+\begin{tikzpicture}[grow =right,
+edge from parent/.style={draw,-latex}]
+\node[rectangle,draw] (a) {a}
+child{ node[rectangle,draw] (b) {b}
+child{node[rectangle,draw] (e) {e}}
+child{node[rectangle,draw] (f) {f}}
+}
+child {node[rectangle,draw] (b) {c}
+}
+;
+
+\end{tikzpicture}
+\end{document}

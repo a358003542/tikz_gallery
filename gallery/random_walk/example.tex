@@ -1,0 +1,27 @@
+% !Mode:: "TeX:UTF-8
+\documentclass[border=2pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+
+\begin{tikzpicture}
+\coordinate (-1) at (-1,0) ;
+\pgfmathsetmacro\i{500}
+\draw[color=gray!50] (0,0) -- (\i,0);
+\foreach \x in {0,...,\i}
+{
+\def\pointname{\x}
+\pgfmathsetmacro{\prepoint}{\x-1}
+\pgfmathrandominteger{ \rint }{ -1 }{ 1 }
+\coordinate (\pointname) at ($(\prepoint) + (1,\rint)$) ;
+%\shade[ball color=red](\pointname) circle (0.05) node[below] {\small \x};
+}
+\draw (0)
+\foreach \x in {0,...,\i}
+{ -- (\x) };
+\end{tikzpicture}
+
+
+\end{document}

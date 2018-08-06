@@ -1,0 +1,198 @@
+% !Mode:: "TeX:UTF-8
+\documentclass[border=2pt]{standalone}
+
+\usepackage{tikz}
+
+
+\usepackage{pgfplots}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont[ItalicFont=方正楷体简体]{思源宋体 CN}
+\setCJKsansfont{思源黑体 CN}
+\setCJKmonofont{方正楷体简体}
+
+\usetikzlibrary{intersections,calc,positioning,arrows}
+
+\begin{document}
+
+\begin{tikzpicture}
+\draw (0,0) node {\Huge 地球} circle (2) ;
+
+%人
+\begin{scope}[yshift=3cm]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(0,-1cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+%人旋转90
+\begin{scope}[xshift=-3cm,yshift=0cm,rotate=90,every node/.style={transform shape}]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:5.5mm) -- ++(-1cm,0cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+%人旋转180
+\begin{scope}[xshift=0cm,yshift=-3cm,rotate=180,every node/.style={transform shape}]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(0cm,1cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+%人旋转270
+\begin{scope}[xshift=3cm,yshift=0cm,rotate=270,every node/.style={transform shape}]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(1,0cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+\node at(0,-5) {\Huge A};
+
+
+
+
+%第二个
+\begin{scope}[xshift=8cm]
+\draw (0,0) node {\Huge 地球} circle (2) ;
+
+%人
+\begin{scope}[yshift=3cm]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(0,-1cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+%人旋转90
+\begin{scope}[xshift=-3cm,yshift=0cm,rotate=90,every node/.style={transform shape}]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(0,-1cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+%人旋转180
+\begin{scope}[xshift=0cm,yshift=-3cm,rotate=180,every node/.style={transform shape}]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(0,-1cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+%人旋转270
+\begin{scope}[xshift=3cm,yshift=0cm,rotate=270,every node/.style={transform shape}]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(0,-1cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+\node at(0,-5) {\Huge B};
+\end{scope}
+
+
+%第三个
+\begin{scope}[xshift=16cm]
+\draw (0,0) node {\Huge 地球} circle (2) ;
+
+%人
+\begin{scope}[yshift=3cm]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(0,-1cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+%人旋转90
+\begin{scope}[xshift=-3cm,yshift=0cm,rotate=90,every node/.style={transform shape}]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(-1cm,0cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+%人旋转180
+\begin{scope}[xshift=0cm,yshift=-3cm,rotate=180,every node/.style={transform shape}]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(0,-1cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+%人旋转270
+\begin{scope}[xshift=3cm,yshift=0cm,rotate=270,every node/.style={transform shape}]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(1cm,0cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+\node at(0,-5) {\Huge C};
+\end{scope}
+
+
+
+%第四个
+\begin{scope}[xshift=24cm]
+\draw (0,0) node {\Huge 地球} circle (2) ;
+
+%人
+\begin{scope}[yshift=3cm]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(0,-1cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+%人旋转90
+\begin{scope}[xshift=-3cm,yshift=0cm,rotate=90,every node/.style={transform shape}]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(0,-1cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+%人旋转180
+\begin{scope}[xshift=0cm,yshift=-3cm,rotate=180,every node/.style={transform shape}]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(0cm,1cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+%人旋转270
+\begin{scope}[xshift=3cm,yshift=0cm,rotate=270,every node/.style={transform shape}]
+\node[circle,fill,minimum size=5mm] (head) {};
+\node[rounded corners=2pt,minimum height=1.3cm,minimum width=0.4cm,fill,below = 1pt of head] (body) {};
+\draw[line width=1mm,round cap-round cap] ([shift={(2pt,-1pt)}]body.north east) --++(-90:6mm);
+\draw[line width=1mm,round cap-round cap] ([shift={(-2pt,-1pt)}]body.north west)--++(127:6mm)  ++(-1pt,-5pt) [fill] circle (0.15)  ;
+\draw[ultra thick,dashed] (body.north west) ++(135:6.5mm) -- ++(0,-1cm);
+\draw[thick,white,-round cap] (body.south) --++(90:5.5mm);
+\end{scope}
+\node at(0,-5) {\Huge D};
+\end{scope}
+
+
+\end{tikzpicture}
+
+
+\end{document}

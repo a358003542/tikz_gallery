@@ -1,0 +1,61 @@
+\documentclass[12pt]{standalone}
+\usepackage{mathptmx}
+\usepackage{tikz}
+%\usepackage{color}
+\usepackage[active,pdflatex,tightpage]{preview}
+\PreviewEnvironment[]{tikzpicture}
+\PreviewEnvironment[]{pgfpicture}
+\DeclareSymbolFont{symbolsb}{OMS}{cmsy}{m}{n}
+\SetSymbolFont{symbolsb}{bold}{OMS}{cmsy}{b}{n}
+\DeclareSymbolFontAlphabet{\mathcal}{symbolsb}
+
+
+
+\usepackage{pgfplots}
+
+
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont[ItalicFont=方正楷体简体]{思源宋体 CN}
+\setCJKsansfont{思源黑体 CN}
+\setCJKmonofont{方正楷体简体}
+
+
+\begin{document}
+
+
+\usetikzlibrary{intersections,calc,positioning}
+
+\begin{tikzpicture}[scale=1]
+\begin{scope}[rotate=18]
+\def\n{5}
+\pgfmathsetmacro\i{\n-1}
+\foreach \x in {0,...,\i}
+{
+\def\pointname{\x}
+\coordinate (\pointname) at ($(0,0) +(\x*360/\n:4cm)$)  ;
+}
+\end{scope}
+
+\node[circle,draw] (huo) at (0) {火};
+\node[circle,draw]  (mu) at (1) {木};
+\node[circle,draw] (shui) at (2) {水};
+\node[circle,draw] (jin) at (3) {金};
+\node[circle,draw] (tu) at (4) {土};
+
+\draw [-latex] (mu) to [bend left] node[above] {生}  (huo);
+\draw [-latex] (huo) to [bend left=15] node[right] {生} (tu);
+\draw [-latex] (tu) to [bend left=5] node[below] {生}   (jin);
+\draw [-latex] (jin) to [bend left=15] node[left] {生} (shui);
+\draw [-latex] (shui) to [bend left] node[above] {生} (mu);
+
+\draw [-latex] (mu) to node[right] {克}  (tu);
+\draw [-latex] (huo) to  node[below] {克} (jin);
+\draw [-latex] (tu) to  node[below] {克}   (shui);
+\draw [-latex] (jin) to  node[left] {克} (mu);
+\draw [-latex] (shui) to  node[above] {克} (huo);
+
+\end{tikzpicture}
+
+
+\end{document}
