@@ -10,26 +10,38 @@
 
 """
 import os
+import re
+import logging
 
 from jinja2 import Template
 
-from bihu.utils.path_utils import gen_allfile
-from ximage.convert.convert_image import convert_image
+from ximage.convert_image import convert_image
+from pathlib_helper import gen_allfile
 
 
 FOLDER_NAME = 'gallery'
 MARKDOWN_NAME = 'GALLERY.md'
 
+logging.basicConfig(level=logging.DEBUG)
+
 def scan_folder():
     g = gen_allfile(FOLDER_NAME, '\.tex$')
     all_files = [os.path.join(FOLDER_NAME, filename) for filename in g]
+
     return all_files
 
 
 def convert_pdf_to_png(all_files):
     for filename in all_files:
-        filename = filename[:-4] + '.pdf'
-        convert_image(filename)
+
+        target_pdf = filename[:-4] + '.pdf'
+        dirname = os.path.dirname(target_pdf)
+
+        logging.info(f'start convert pdf to png on :{target_pdf}')
+
+        outimg = convert_image(target_pdf, outputdir=dirname,pdftocairo_fix_encoding='gb18030')
+
+        logging.info(f'convert pdf result: {outimg}')
 
 
 def create_link_data(all_files):

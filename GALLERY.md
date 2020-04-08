@@ -100,6 +100,15 @@
 ---
 
 
+### book_cover\book_cover
+![img](gallery/book_cover/book_cover.png)
+
+
+[source code](gallery/book_cover/book_cover.tex)
+
+---
+
+
 ### circuit\example
 ![img](gallery/circuit/example.png)
 

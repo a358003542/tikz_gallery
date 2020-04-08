@@ -3,11 +3,13 @@
 \usepackage{graphicx}
 \usepackage{pgfplots}
 \usepackage{fontspec}
-\usepackage{xeCJK}
-\setCJKmainfont[BoldFont=Adobe 黑体 Std,ItalicFont=Adobe 楷体 Std]
-    {Adobe 宋体 Std}%影響rmfamily字體
-\setCJKsansfont{Adobe 黑体 Std}%影響sffamily字體
-\setCJKmonofont{Adobe 楷体 Std}%影響ttfamily字體
+
+\RequirePackage[CJKecglue={\hskip 0pt}]{xeCJK}
+\xeCJKsetup{PunctStyle=plain}
+\setCJKmainfont[ItalicFont=方正楷体简体]{思源宋体 CN}
+\setCJKsansfont{思源黑体 CN}
+\setCJKmonofont{方正楷体简体}
+
 \usetikzlibrary{mindmap,trees}
 \begin{document}
 %配色建议 主要是三层  父层统一黑色（白字）  自己层（根据学科内容不同和黑色混）  子层和自己层相同方案 red   blue  orange  green  olive brown  purple teal violet lime   pink cyan magenta gray

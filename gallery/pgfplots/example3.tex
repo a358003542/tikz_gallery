@@ -6,11 +6,11 @@
 
 \usepackage{pgfplots}
 \usepackage{fontspec}
-\usepackage{xeCJK}
-\setCJKmainfont[BoldFont=Adobe 黑体 Std,ItalicFont=Adobe 楷体 Std]
-    {Adobe 宋体 Std}%影響rmfamily字體
-\setCJKsansfont{Adobe 黑体 Std}%影響sffamily字體
-\setCJKmonofont{Adobe 楷体 Std}%影響ttfamily字體
+\RequirePackage[CJKecglue={\hskip 0pt}]{xeCJK}
+\xeCJKsetup{PunctStyle=plain}
+\setCJKmainfont[ItalicFont=方正楷体简体]{思源宋体 CN}
+\setCJKsansfont{思源黑体 CN}
+\setCJKmonofont{方正楷体简体}
 
 
 \begin{document}
