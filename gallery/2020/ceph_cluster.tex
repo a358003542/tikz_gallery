@@ -1,0 +1,83 @@
+\documentclass[tikz,border=2pt]{standalone}
+
+\RequirePackage[CJKecglue={\hskip 0pt}]{xeCJK}
+\xeCJKsetup{PunctStyle=plain}
+\setCJKmainfont[ItalicFont=方正楷体简体]{思源宋体 CN}
+\setCJKsansfont{思源黑体 CN}
+\setCJKmonofont{方正楷体简体}
+
+\begin{document}
+
+
+\tikzset{outline/.style={help lines, color=#1!50}}
+\tikzset{outline/.default=gray}
+\tikzset{nodestyle/.style={draw, fill=blue!50, text=black, 
+     minimum height=1cm, minimum width=2cm, font=\large,
+     }}
+\tikzset{text-nodestyle/.style={draw, text=black, font=\large,
+     }}    
+     
+     
+     
+\begin{tikzpicture}
+%\draw[outline] (-8,-5) grid (6,8);
+
+
+\draw[color=red] (-4,1) rectangle (4,-4);
+
+\node at (-6,-1.5) [text-nodestyle] {ceph存储集群};
+
+% origin three box
+\node (node1) at (-2.5,0)[nodestyle] {osd};
+
+\node (node2) at (0,0)[nodestyle] {mon/mgr};
+
+\node (node3) at (2.5,0)[nodestyle] {osd};
+
+% y-1.5
+\node (node3) at (-2.5,-1.5)[nodestyle] {osd};
+
+\node (node4) at (0,-1.5)[nodestyle] {mon/mgr};
+
+\node (node5) at (2.5,-1.5)[nodestyle] {osd};
+
+% y-3
+\node (node6) at (-2.5,-3)[nodestyle] {osd};
+
+\node (node7) at (0,-3)[nodestyle] {mon/mgr};
+
+\node (node8) at (2.5,-3)[nodestyle] {osd};
+
+% ceph client cluster y+6
+\draw[color=red] (-4,7) rectangle (4,2);
+
+\node at (-6,4.5) [text-nodestyle] {ceph客户端集群};
+
+% origin three box
+\node (node1) at (-2.5,6)[nodestyle] {};
+
+\node (node2) at (0,6)[nodestyle] {};
+
+\node (node3) at (2.5,6)[nodestyle] {};
+
+% y-1.5
+\node (node3) at (-2.5,4.5)[nodestyle] {};
+
+\node (node4) at (0,4.5)[nodestyle] {};
+
+\node (node5) at (2.5,4.5)[nodestyle] {};
+
+% y-3
+\node (node6) at (-2.5,3)[nodestyle] {};
+
+\node (node7) at (0,3)[nodestyle] {};
+
+\node (node8) at (2.5,3)[nodestyle] {};
+
+
+
+
+
+\end{tikzpicture}
+
+\end{document}

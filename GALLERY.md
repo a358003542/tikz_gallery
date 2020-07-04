@@ -1,6 +1,15 @@
 ## tikz_gallery
 
 
+### 2020\ceph_cluster
+![img](gallery/2020/ceph_cluster.png)
+
+
+[source code](gallery/2020/ceph_cluster.tex)
+
+---
+
+
 ### 3d\3dtest1
 ![img](gallery/3d/3dtest1.png)
 
