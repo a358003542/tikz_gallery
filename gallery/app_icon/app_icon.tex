@@ -1,0 +1,37 @@
+\documentclass[tikz,border=0pt]{standalone}
+
+
+
+\RequirePackage[CJKecglue={\hskip 0pt}]{xeCJK}
+\xeCJKsetup{PunctStyle=plain}
+\setCJKmainfont[ItalicFont=KaiTi]{Source Han Serif CN}
+\setCJKsansfont{Source Han Sans CN}
+\setCJKmonofont{KaiTi}
+
+
+\begin{document}
+
+\tikzset{outline/.style={help lines, color=#1!50}}
+\tikzset{outline/.default=gray}
+\tikzset{nodestyle/.style={text=brown!50, 
+     minimum height=1cm, minimum width=1cm, font=\Huge,
+     scale=2
+     }}
+     
+\pagecolor{blue!50}  
+
+\begin{tikzpicture}
+
+
+%\draw[outline] (-2,-2) grid (2,2);
+
+\node (node1) at (-1,1)[nodestyle] {周};
+\node (node1) at (1,1)[nodestyle] {易};
+\node (node1) at (-1,-1)[nodestyle] {摇};
+\node (node1) at (1,-1)[nodestyle] {卦};
+
+
+\end{tikzpicture}
+
+
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass[tikz,border=0pt]{standalone}
+
+\usepackage{fontspec} 
+
+\setmainfont[Mapping=tex-text]{DejaVu Serif}
+\setsansfont[Mapping=tex-text]{DejaVu Sans}
+\setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\begin{document}
+\definecolor{OutlineColor}{HTML}{ffffff}
+\definecolor{TextColor}{HTML}{12130F}
+\definecolor{PageColor}{HTML}{ffffff}
+
+\tikzset{outline/.style={
+    color=OutlineColor,
+    line width = 0.5pt,
+    xstep = 1,
+    ystep = 1
+}}
+
+\tikzset{nodestyle/.style={
+    text=TextColor, 
+     font=\Huge\ttfamily\bfseries,
+     scale=1,
+     anchor =base,
+    % fill  = gray,
+}}
+
+
+%\pagecolor{OutlineColor}  
+
+\begin{tikzpicture}
+
+
+\draw[outline] (-1,-1) grid (1,1);
+%\fill[color=red] (0,0) circle (0.1) ; 
+
+\node (node1) at (-0.6,-0.3)[nodestyle] {L};
+\node (node1) at (0,-0.3)[nodestyle] {M};
+\node (node1) at (0.6,-0.3)[nodestyle] {H};
+
+
+\end{tikzpicture}
+
+
+\end{document}

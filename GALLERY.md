@@ -37,6 +37,24 @@
 ---
 
 
+### app_icon\app_icon
+![img](gallery/app_icon/app_icon.png)
+
+
+[source code](gallery/app_icon/app_icon.tex)
+
+---
+
+
+### app_icon2\app_icon2
+![img](gallery/app_icon2/app_icon2.png)
+
+
+[source code](gallery/app_icon2/app_icon2.tex)
+
+---
+
+
 ### balance\example
 ![img](gallery/balance/example.png)
 

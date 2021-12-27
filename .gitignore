@@ -244,3 +244,5 @@ TSWLatexianTemp*
 
 .idea/
 *.pyc
+
+venv/
