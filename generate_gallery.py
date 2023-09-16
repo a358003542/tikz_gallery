@@ -15,7 +15,7 @@ import logging
 
 from jinja2 import Template
 
-from ximage.convert_image import convert_image
+from convert_image import convert_image
 from pathlib_helper import gen_allfile
 
 

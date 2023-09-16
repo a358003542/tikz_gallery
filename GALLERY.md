@@ -55,6 +55,15 @@
 ---
 
 
+### avatar\avatar
+![img](gallery/avatar/avatar.png)
+
+
+[source code](gallery/avatar/avatar.tex)
+
+---
+
+
 ### balance\example
 ![img](gallery/balance/example.png)
 
