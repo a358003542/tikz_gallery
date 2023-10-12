@@ -15,8 +15,8 @@ import logging
 
 from jinja2 import Template
 
-from convert_image import convert_image
-from pathlib_helper import gen_allfile
+from pywander.image.convert_image import convert_image
+from pywander.pathlib import gen_allfile
 
 
 FOLDER_NAME = 'gallery'

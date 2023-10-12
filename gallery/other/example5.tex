@@ -1,0 +1,41 @@
+\documentclass[tikz,border=2pt]{standalone}
+
+\begin{document}
+
+
+\usetikzlibrary{patterns,calc}
+\begin{tikzpicture}
+
+\begin{scope}[rope/.style={thick}]
+
+
+\fill[pattern = north east lines] (-2,2) rectangle (2,2.2);
+\fill[color=black!50] (-2,1.9) rectangle (2,2);
+
+\coordinate (top) at ($(0,2) + (0,-0.1)$);
+\coordinate (mid) at (0,0);
+
+\begin{scope}
+\draw[rope] (mid) circle (1) ;
+\end{scope}
+
+\draw[rope] (top) -- (mid); 
+
+\coordinate (left) at (-1,0);
+\coordinate (right) at (1,0);
+
+\coordinate (rope-bottom) at (-1,-2.5);
+\coordinate (rope-top) at (1,-1.5);
+
+\draw[rope] (rope-bottom) -- (left);
+\draw[rope,-latex] (right) -- (rope-top)  node[right] {$F$};
+
+\draw[thick] ($(rope-bottom) + (-0.5,-1)$) rectangle ($(rope-bottom) + (0.5,0)$);
+
+\end{scope}
+
+\coordinate (box-mid) at  ($(rope-bottom) + (0,-0.5)$);
+\node at (box-mid) {A};
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,71 @@
+% !Mode:: "TeX:UTF-8"%確保文檔utf-8編碼
+\documentclass{standalone}
+
+\usepackage{tikz}
+
+
+\usepackage{pgfplots}
+
+\RequirePackage[CJKecglue={\hskip 0pt}]{xeCJK}
+\xeCJKsetup{PunctStyle=plain}
+\setCJKmainfont[ItalicFont=KaiTi]{Source Han Serif CN}
+\setCJKsansfont{Source Han Sans CN}
+\setCJKmonofont{KaiTi}
+
+\usetikzlibrary{intersections,calc,positioning}
+
+\begin{document}
+
+\begin{tikzpicture}[xscale=0.5]
+
+%主线轴
+\def\startx{10}
+\def\endx{50}
+\pgfmathsetmacro{\stepx}{\startx+1}
+\pgfmathsetmacro{\stepxfive}{\startx+5}
+\pgfmathsetmacro{\stepxten}{\startx+10}
+
+\coordinate (startpoint) at (\startx,0) ;
+\coordinate (endpoint) at (\endx,0) ;
+\draw [](startpoint) -- (endpoint);
+
+\draw ($(startpoint) + (-3,-4)$) rectangle ($(endpoint) + (3,0)$);
+
+%细小刻度
+\foreach \x in {\startx,\stepx,...,\endx}
+  \draw [](\x,0) -- (\x,-1) ;   
+
+5分之一刻度
+\foreach \y in {\startx,\stepxfive,...,\endx}
+  \draw [] (\y,-1.6) -- (\y,0);
+
+
+%10分之一刻度
+\foreach \i in {\startx,\stepxten,...,\endx}
+  \draw [] (\i,-2.2) -- (\i,0)
+  node[below=2.5cm] {\Huge \pgfmathprint{int(\i/10)}};
+
+%unit
+\node at ($(endpoint) +(1.5,-3)$) {\Huge  cm};
+
+
+%额外的修改
+\begin{scope}[yscale=0.5]
+\draw (13,0) -- (20,0) -- (20,7) -- cycle;
+\draw (29,0) -- (29,8) -- (40,0) -- cycle;
+
+
+
+\draw[xshift=-2cm,yshift=2cm] (20.45,0.45) circle (0.45) ;
+
+\begin{scope}[xshift=14cm]
+\draw[xshift=-2cm,yshift=2cm] (20.45,0.45) circle (0.45) ;
+\end{scope}
+
+\draw (24.5,4.5) circle (4.5) ;
+\end{scope}
+
+\end{tikzpicture}
+
+
+\end{document}

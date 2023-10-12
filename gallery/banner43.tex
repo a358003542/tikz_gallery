@@ -1,0 +1,43 @@
+\documentclass[tikz,border=0pt]{standalone}
+
+
+
+\RequirePackage[CJKecglue={\hskip 0pt}]{xeCJK}
+\xeCJKsetup{PunctStyle=plain}
+\setCJKmainfont[ItalicFont=KaiTi]{Source Han Serif CN}
+\setCJKsansfont{Source Han Sans CN}
+\setCJKmonofont{KaiTi}
+
+
+\begin{document}
+
+\tikzset{outline/.style={help lines, color=red!90, dotted}}
+\tikzset{outline/.default=gray}
+
+\tikzset{nodestyle/.style={text=black!90, 
+     minimum height=1cm, minimum width=1cm, font=\Huge,
+     scale=1.8
+     }}
+     
+\tikzset{nodestyle2/.style={text=black!90, 
+     minimum height=1cm, minimum width=1cm, font=\Huge,
+     scale=1.5
+     }}
+     
+\pagecolor{white}  
+
+\begin{tikzpicture}
+
+
+\draw[outline] (-4,-3) grid (4,3);
+
+\node (node1) at (-2,1)[nodestyle] {Web};
+\node (node1) at (0.6,1)[nodestyle] {应};
+\node (node1) at (2.2,1)[nodestyle] {用};
+\node (node1) at (0,-1)[nodestyle2] {开发总论};
+
+
+\end{tikzpicture}
+
+
+\end{document}

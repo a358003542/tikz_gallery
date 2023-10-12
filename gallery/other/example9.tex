@@ -1,0 +1,42 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\begin{document}
+
+
+\usetikzlibrary{decorations.pathreplacing}
+
+
+\begin{tikzpicture}
+\newcommand{\sun}[2][]{
+\begin{scope}[#1]
+\def\sunr{#2}
+\draw (0,0) circle (\sunr);
+
+\foreach \angle in { 0,45,...,360 }{
+\draw [rotate around={\angle:(0,0)}]
+(\sunr+\sunr,0) -- +(\sunr,0);
+}
+\end{scope}
+}
+
+\draw (5,0) rectangle (6,5);
+
+\draw (3,0) -- (3,3);
+
+
+
+\draw (0,0) -- (10,0);
+\draw[thick] (0,0) -- (10,10);
+
+\sun[xshift=10cm,yshift=10cm,ultra thick]{0.2}
+
+\draw[decorate,decoration={brace,amplitude=8},rotate=180,xshift=-3cm] (0,0) to node[below = 8] {$l1$} (3,0) ;
+
+\draw[decorate,decoration={brace,amplitude=8},rotate=180,xshift=-8cm] (3,0) to node[below = 8] {$l2$} (5,0) ;
+
+
+\end{tikzpicture}
+
+
+\end{document}

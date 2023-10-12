@@ -1,11 +1,29 @@
 ## tikz_gallery
 
 
-### 2020\ceph_cluster
-![img](gallery/2020/ceph_cluster.png)
+### .\banner43
+![img](gallery/./banner43.png)
 
 
-[source code](gallery/2020/ceph_cluster.tex)
+[source code](gallery/./banner43.tex)
+
+---
+
+
+### .\ceph_cluster
+![img](gallery/./ceph_cluster.png)
+
+
+[source code](gallery/./ceph_cluster.tex)
+
+---
+
+
+### .\fibonacci_circle
+![img](gallery/./fibonacci_circle.png)
+
+
+[source code](gallery/./fibonacci_circle.tex)
 
 ---
 
@@ -46,11 +64,11 @@
 ---
 
 
-### app_icon2\app_icon2
-![img](gallery/app_icon2/app_icon2.png)
+### app_icon\app_icon2
+![img](gallery/app_icon/app_icon2.png)
 
 
-[source code](gallery/app_icon2/app_icon2.tex)
+[source code](gallery/app_icon/app_icon2.tex)
 
 ---
 
@@ -69,6 +87,51 @@
 
 
 [source code](gallery/balance/example.tex)
+
+---
+
+
+### balance\example2
+![img](gallery/balance/example2.png)
+
+
+[source code](gallery/balance/example2.tex)
+
+---
+
+
+### balance\example3
+![img](gallery/balance/example3.png)
+
+
+[source code](gallery/balance/example3.tex)
+
+---
+
+
+### balance\example4
+![img](gallery/balance/example4.png)
+
+
+[source code](gallery/balance/example4.tex)
+
+---
+
+
+### balance\example5
+![img](gallery/balance/example5.png)
+
+
+[source code](gallery/balance/example5.tex)
+
+---
+
+
+### balance\example6
+![img](gallery/balance/example6.png)
+
+
+[source code](gallery/balance/example6.tex)
 
 ---
 
@@ -190,6 +253,15 @@
 ---
 
 
+### clock\example2
+![img](gallery/clock/example2.png)
+
+
+[source code](gallery/clock/example2.tex)
+
+---
+
+
 ### convex_lens\example
 ![img](gallery/convex_lens/example.png)
 
@@ -235,6 +307,15 @@
 ---
 
 
+### gravity\example2
+![img](gallery/gravity/example2.png)
+
+
+[source code](gallery/gravity/example2.tex)
+
+---
+
+
 ### mandala\mandala
 ![img](gallery/mandala/mandala.png)
 
@@ -267,6 +348,15 @@
 
 
 [source code](gallery/measuring_cylinder/example3.tex)
+
+---
+
+
+### measuring_cylinder\example4
+![img](gallery/measuring_cylinder/example4.png)
+
+
+[source code](gallery/measuring_cylinder/example4.tex)
 
 ---
 
@@ -348,6 +438,51 @@
 
 
 [source code](gallery/other/example4.tex)
+
+---
+
+
+### other\example5
+![img](gallery/other/example5.png)
+
+
+[source code](gallery/other/example5.tex)
+
+---
+
+
+### other\example6
+![img](gallery/other/example6.png)
+
+
+[source code](gallery/other/example6.tex)
+
+---
+
+
+### other\example7
+![img](gallery/other/example7.png)
+
+
+[source code](gallery/other/example7.tex)
+
+---
+
+
+### other\example8
+![img](gallery/other/example8.png)
+
+
+[source code](gallery/other/example8.tex)
+
+---
+
+
+### other\example9
+![img](gallery/other/example9.png)
+
+
+[source code](gallery/other/example9.tex)
 
 ---
 
@@ -460,6 +595,24 @@
 ---
 
 
+### ruler\example2
+![img](gallery/ruler/example2.png)
+
+
+[source code](gallery/ruler/example2.tex)
+
+---
+
+
+### ruler\example3
+![img](gallery/ruler/example3.png)
+
+
+[source code](gallery/ruler/example3.tex)
+
+---
+
+
 ### spring\example
 ![img](gallery/spring/example.png)
 
@@ -483,6 +636,24 @@
 
 
 [source code](gallery/spring/example3.tex)
+
+---
+
+
+### spring\example6
+![img](gallery/spring/example6.png)
+
+
+[source code](gallery/spring/example6.tex)
+
+---
+
+
+### spring\example7
+![img](gallery/spring/example7.png)
+
+
+[source code](gallery/spring/example7.tex)
 
 ---
 

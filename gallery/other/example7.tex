@@ -1,0 +1,31 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\begin{document}
+
+
+\usetikzlibrary{patterns,calc}
+\begin{tikzpicture}
+\newcommand{\ground}[2][]{
+\begin{scope}[#1]
+
+\def\groundlen{#2}
+\fill[pattern = north east lines] (-#2,0) rectangle (#2,0.2);
+\fill[color=black!50] (-#2,0.2) rectangle (#2,0.3);
+\end{scope}}
+
+\ground[yshift=-1cm]{8cm}
+
+\node[above,inner sep=1pt] (A) at (-4,0) {A};
+\node[above,inner sep=1pt] (B) at (6,0) {B};
+
+\draw[-latex] (1,5) -- (A);
+\draw[-latex] (A) -- (1,-5);
+
+\draw[-latex] (-4,5) -- (B);
+\draw[latex-] (-4,-5) -- (B);
+
+\draw (A) -- (B) ;
+\end{tikzpicture}
+
+\end{document}
