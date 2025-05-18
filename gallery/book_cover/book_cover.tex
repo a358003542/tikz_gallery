@@ -2,15 +2,16 @@
 
 
 \RequirePackage{geometry}
-\RequirePackage[CJKecglue={\hskip 0pt}]{xeCJK}
+\RequirePackage[]{xeCJK}
 \xeCJKsetup{PunctStyle=plain}
-\setCJKmainfont[ItalicFont=TW-Kai]{Source Han Serif CN}
+\setCJKmainfont[ItalicFont=KaiTi]{Source Han Serif CN}
 \setCJKsansfont{Source Han Sans CN}
-\setCJKmonofont{TW-Kai}
+\setCJKmonofont{KaiTi}
 
 
 \begin{document}
 \makeatletter
+
 \renewcommand\title[1]{\def\@title{#1}}
 \newcommand\subtitle[1]{\def\@subtitle{#1}}
 \renewcommand\author[1]{\def\@author{#1}}
@@ -23,12 +24,13 @@
 \version{}
 
 \title{XeLaTex指南}
-\author{万泽}
+\author{Wander}
 %\subtitle{一个简单的封面}
 %\date{\today}
-\version{第四次修订版}
+\version{}
 
 \begin{titlepage}
+\xeCJKsetup{CJKecglue={\hskip 0pt plus 0.08\baselineskip}}
 \newgeometry{left=1cm,right=1cm,top=1cm,bottom=1cm}
 \begin{center}
 \vspace*{120pt}
@@ -45,7 +47,7 @@
 
 \end{center}
 \end{titlepage}
-
+\restoregeometry
 \makeatother
 
 \end{document}
